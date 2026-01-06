@@ -1,5 +1,5 @@
-baseURL: https://example.docsy.dev
-title: Goldydocs
+baseURL: https://haoxiaoling.github.io
+title: RoboticPlus.AI Docs
 
 # cSpell:ignore goldmark github hugo readingtime docsy subdir lastmod pygments linenos catmullrom norsk gu
 
@@ -46,28 +46,17 @@ imaging:
 languages:
   en:
     languageName: English
-    title: Goldydocs
+    title: RoboticPlus.AI Docs
     params:
-      description: A Docsy example site
-  # cSpell:disable
-  'no':
-    languageName: Norsk
-    contentDir: content/no
-    title: Gulldoks
+      description: RoboticPlus.AI Documentation
+  zh:
+    languageName: 中文
+    contentDir: content/zh
+    title: RoboticPlus.AI 文档
     params:
-      description: Docsy er operativsystem for skyen
-      time_format_default: 02.01.2006
-      time_format_blog: 02.01.2006
-  fa:
-    languageDirection: rtl
-    languageName: 'فارسی (Persian)'
-    contentDir: content/fa
-    title: 'اسناد گلدی'
-    params:
-      description: 'یک نمونه برای پوسته داکسی'
-      time_format_default: 2006.01.02
-      time_format_blog: 2006.01.02
-  # cSpell:enable
+      description: RoboticPlus.AI 文档站点
+      time_format_default: 2006-01-02
+      time_format_blog: 2006-01-02
 
 markup:
   goldmark:
@@ -207,10 +196,6 @@ params:
         url: https://github.com/google/docsy
         icon: fab fa-github
         desc: Development takes place here!
-      - name: Slack
-        url: https://example.org/slack
-        icon: fab fa-slack
-        desc: Chat with other project developers
       - name: Developer mailing list
         url: https://example.org/mail
         icon: fa fa-envelope
