@@ -133,6 +133,14 @@ params:
   # Enable syntax highlighting and copy buttons on code blocks with Prism
   prism_syntax_highlighting: false
 
+  # Math rendering configuration
+  math: true
+  math_engine: katex
+  katex:
+    css: "css/katex.min.css"
+    js: "js/katex.min.js"
+    autoRender: "js/auto-render.min.js"
+
   copyright:
     authors:
       Docsy Authors | [CC BY 4.0](https://creativecommons.org/licenses/by/4.0) |

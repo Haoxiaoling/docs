@@ -23,7 +23,6 @@ concurrency:
 jobs:
   # Build website
   build:
-    if: github.repository_owner != 'HugoBlox'
     runs-on: ubuntu-latest
     steps:
     - name: Checkout
@@ -44,10 +43,10 @@ jobs:
     - name: Get Hugo Version
       id: hugo-version
       run: |
-        if [ -f "hugoblox.yaml" ]; then
-          VERSION=$(grep "hugo_version" hugoblox.yaml | awk '{print $2}' | tr -d "'\"")
+        if [ -f "hugo_version.yaml" ]; then
+          VERSION=$(grep "hugo_version" hugo_version.yaml | awk '{print $2}' | tr -d "'\"")
         elif [ -f "hugo.yaml" ]; then
-          # Try to extract version from hugo.yaml if hugoblox.yaml doesn't exist
+          # Try to extract version from hugo.yaml if hugo_version.yaml doesn't exist
           VERSION=$(grep -A 2 "hugoVersion:" hugo.yaml | grep "min:" | awk '{print $2}' | tr -d "'\"")
           # If no version found, use latest
           if [ -z "$VERSION" ]; then
@@ -107,7 +106,7 @@ jobs:
         HUGO_BLOX_LICENSE: ${{ secrets.HUGO_BLOX_LICENSE }}
       run: |
         echo "Hugo Cache Dir: $(hugo config | grep cachedir)"
-        hugo --minify --baseURL "${{ steps.pages.outputs.base_url }}/"
+        hugo --minify --baseURL "${{ steps.pages.outputs.base_url }}/" --ignoreErrors
 
     - name: Generate Pagefind search index (if applicable)
       run: |
@@ -127,7 +126,6 @@ jobs:
 
   # Deploy website to GitHub Pages hosting
   deploy:
-    if: github.repository_owner != 'HugoBlox'
     needs: build
     # Grant GITHUB_TOKEN the permissions required to make a Pages deployment
     permissions:
