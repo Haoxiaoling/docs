@@ -4,7 +4,7 @@
   "description": "Flash project documentation site",
   "private": true,
   "scripts": {
-    "build": "hugo --minify --ignoreErrors",
+    "build": "hugo --minify",
     "dev": "hugo server",
     "clean": "rm -rf public resources",
     "prebuild": "hugo mod get -u && hugo mod tidy",
